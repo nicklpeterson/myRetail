@@ -1,6 +1,6 @@
 ### NoSQL Database
-This project is using [docker](https://docs.docker.com/install/) to pull up and a local mongoDB database and [Mongobee](https://github.com/mongobee/mongobee)
-for initializing the database and manging schema changes. 
+This project is using [docker](https://docs.docker.com/install/) to pull up and a local mongoDB database and a simple
+ javascript for initializing the database. 
 
 You will need to start the database before running the application:
 
@@ -20,4 +20,8 @@ If you are prompted to login make sure to set the following fields:
 I chose to run the database in docker for two reasons. First, it makes for a very nice development experience.
 We can wipe the container and create a new database at any time and interact with the database using the adminer GUI.
 Second, since this application will be reviewed locally, I expect that spinning up a local containerized database
-will help avoid any machine specific issues.
+will help avoid any machine specific issues. 
+
+##### Future Changes
+We may want to add a schema change management tool (like [Mongock](https://github.com/cloudyrock/mongock)) to
+ facilitate easy database changes.

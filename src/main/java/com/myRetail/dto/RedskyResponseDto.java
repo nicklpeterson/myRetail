@@ -20,7 +20,7 @@ public class RedskyResponseDto {
     private void unpackNested(Map<String, Map<String, Object>> product) {
         try {
             if (product.containsKey("available_to_promise_network")
-                    && product.get("available_to_promise_networ").containsKey("product_id")) {
+                    && product.get("available_to_promise_network").containsKey("product_id")) {
                 this.id = (String) product.get("available_to_promise_network").get("product_id");
             } else {
                 this.id = null;

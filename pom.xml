@@ -22,7 +22,6 @@
         <hibernate.version>5.4.0.Final</hibernate.version>
         <narayana.version>5.9.2.Final</narayana.version>
         <apache-http-client.version>4.5.13</apache-http-client.version>
-        <mongobee.version>0.13</mongobee.version>
         <jackson.version>2.11.1</jackson.version>
     </properties>
 
@@ -100,14 +99,6 @@
             <version>${jackson.version}</version>
         </dependency>
         <!-- / JACKSON -->
-
-        <dependency>
-            <groupId>com.github.mongobee</groupId>
-            <artifactId>mongobee</artifactId>
-            <version>${mongobee.version}</version>
-        </dependency>
-
-
     </dependencies>
 
     <build>
