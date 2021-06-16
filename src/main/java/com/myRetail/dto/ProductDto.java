@@ -1,8 +1,10 @@
 package com.myRetail.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 @Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDto {
     private final String id;
     private final String name;
@@ -13,6 +15,12 @@ public class ProductDto {
         this.id = id;
         this.name = name;
         this.currentPrice = new CurrentPrice(currencyCode, price);
+    }
+
+    public ProductDto(String id, String name) {
+        this.id = id;
+        this.name = name;
+        this.currentPrice = null;
     }
 
     @AllArgsConstructor

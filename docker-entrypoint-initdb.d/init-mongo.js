@@ -22,9 +22,9 @@ const initialPriceData = [
         currency: "USD"
     },
     {
-        productId: "12954218",
-        price: 17.55,
-        currency: "CAD"
+       productId: "12954218",
+       price: 17.55,
+       currency: "CAD"
     },
 ]
 

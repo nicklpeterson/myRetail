@@ -1,5 +1,6 @@
 package com.myRetail.service;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.myRetail.clients.RedskyTargetClient;
 import com.myRetail.dto.ProductDto;
 import com.myRetail.dto.RedskyResponseDto;
@@ -20,7 +21,7 @@ public class ProductService {
     private final PriceRepository priceRepository;
     private final RedskyTargetClient redskyTargetClient;
 
-    public void saveProduct(Price productDto) {
+    public void savePrice(Price productDto) {
         priceRepository.save(productDto);
     }
 
@@ -29,11 +30,19 @@ public class ProductService {
         try {
             Optional<Price> priceOptional = priceRepository.findByProductId(id);
             final RedskyResponseDto redskyResponseDto = redskyTargetClient.requestProduct(id);
-            if (redskyResponseDto.getTitle() == null || redskyResponseDto.getId() == null || !priceOptional.isPresent()) {
+            if (redskyResponseDto.getTitle() == null || redskyResponseDto.getId() == null) {
                 throw new ProductNotFoundException();
             }
-            final Price price = priceOptional.get();
-            productDto = new ProductDto(id, redskyResponseDto.getTitle(), price.getCurrency(), price.getPrice());
+
+            // If the price is not in our database, but we have product information from the redsky API
+            // we will not include price data in the response
+            if (!priceOptional.isPresent()) {
+                productDto = new ProductDto(id, redskyResponseDto.getTitle());
+            } else {
+                final Price price = priceOptional.get();
+                productDto = new ProductDto(id, redskyResponseDto.getTitle(), price.getCurrency(), price.getPrice());
+            }
+
         } catch (HttpRequestException e) {
             throw new ProductServiceException(e.getMessage(), e);
         }
