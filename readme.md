@@ -16,7 +16,7 @@ If you are prompted to login make sure to set the following fields:
 - Password: `123`
 - Database: `my-retail-db`
 
-#####Why?
+##### Why?
 I chose to run the database in docker for two reasons. First, it makes for a very nice development experience.
 We can wipe the container and create a new database at any time and interact with the database using the adminer GUI.
 Second, since this application will be reviewed locally, I expect that spinning up a local containerized database
