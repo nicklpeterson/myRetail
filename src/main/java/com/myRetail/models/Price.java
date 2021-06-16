@@ -1,25 +1,18 @@
 package com.myRetail.models;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
-@Data
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Document(collection = "price")
-public class PriceModel {
+public class Price {
 
-    @Id
-    private String id;
-
-    @Field("price")
+    private String productId;
     private double price;
-
-    @Field("currency")
     private String currency;
 }

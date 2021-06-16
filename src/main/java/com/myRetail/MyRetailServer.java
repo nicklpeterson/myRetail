@@ -1,17 +1,15 @@
 package com.myRetail;
 
-import com.github.cloudyrock.spring.v5.EnableMongock;
 import com.myRetail.clients.RedskyTargetClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Slf4j
-@EnableMongock
 @SpringBootApplication
-@EntityScan(basePackages = "com.myRetail.")
+@EnableMongoRepositories
 public class MyRetailServer {
     public static void main(String[] args) {
         SpringApplication.run(MyRetailServer.class, args);

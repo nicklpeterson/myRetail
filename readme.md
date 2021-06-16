@@ -12,8 +12,8 @@ Once the database is running you can inspect it at:
 If you are prompted to login make sure to set the following fields:
 - System: `MongoDB`
 - Server: `dbMongo`
-- Username: `dev`
-- Password: `123`
+- Username: `admin`
+- Password: `admin`
 - Database: `my-retail-db`
 
 ##### Why?

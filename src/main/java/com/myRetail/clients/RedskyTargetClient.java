@@ -3,9 +3,7 @@ package com.myRetail.clients;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.myRetail.dto.RedskyResponseDto;
 import com.myRetail.exceptions.HttpRequestException;
-import com.myRetail.exceptions.ProductNotFoundException;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -16,7 +14,6 @@ import org.springframework.http.HttpHeaders;
 import java.io.IOException;
 
 @NoArgsConstructor
-@Slf4j
 public class RedskyTargetClient {
     private static final String URL = "http://redsky.target.com/v3/pdp/tcin/";
     private static final String URL_PARAMS = "?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,"
@@ -33,8 +30,7 @@ public class RedskyTargetClient {
             final ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.readValue(json, RedskyResponseDto.class);
         } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new HttpRequestException();
+            throw new HttpRequestException(e.getMessage(), e);
         }
     }
 
