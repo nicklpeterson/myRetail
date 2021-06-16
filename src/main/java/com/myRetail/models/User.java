@@ -9,9 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(collection = "price")
-public class Price {
-    private String productId;
-    private double price;
-    private String currency;
+@Document(collection = "user")
+public class User {
+    private String username;
+    private String password;
 }

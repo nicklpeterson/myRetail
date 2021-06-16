@@ -9,8 +9,3 @@ spring:
       database: my-retail-db
       username: admin
       password: admin
-
-security.basic.enabled: false
-
-logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
-
