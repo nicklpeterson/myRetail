@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  dbMongo:
+    image: mongo:3.6.2
+    container_name: 'mongo-container'
+    environment:
+      MONGO_INITDB_DATABSE: my-retail-db
+      MONGO_INITDB_ROOT_USERNAME: dev
+      MONGO_INITDB_ROOT_PASSWORD: 123
+    ports:
+      - 27017:27017
+    volumes:
+      - ./docker-entrypoint-initdb.d/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+  admin:
+    image: dockette/adminer:full-php5
+    restart: always
+    ports:
+      - "5401:80"
