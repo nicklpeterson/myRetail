@@ -1,28 +1,32 @@
 print("Initializing Database");
 
+/*
+The security layer assumes we are only storing encrypted passwords. So, it will try to decrypt the password
+during authentication. Here we are just storing admin hashed with Bcrypt.
+ */
 const adminUser = {
     username: "admin",
-    password: "admin"
+    password: "$2a$04$P8Wwwbtm246F0XxRK1E7wOuei0mvjIDVyyWeQrYGXBHyRp3p92fFa" // 'admin' encrypted
 }
 
 const initialPriceData = [
     {
-        productId: "13860428",
+        _id: "13860428",
         price: 13.49,
         currency: "USD"
     },
     {
-        productId: "54456119",
+        _id: "54456119",
         price: 3.59,
         currency: "USD"
     },
     {
-        productId: "13264003",
+        _id: "13264003",
         price: 4.99,
         currency: "USD"
     },
     {
-       productId: "12954218",
+        _id: "12954218",
        price: 17.55,
        currency: "CAD"
     },

@@ -28,7 +28,7 @@ public class ProductService {
     public ProductDto selectProduct(String id) throws ProductNotFoundException, ProductServiceException {
         final ProductDto productDto;
         try {
-            Optional<Price> priceOptional = priceRepository.findByProductId(id);
+            final Optional<Price> priceOptional = priceRepository.findByProductId(id);
             final RedskyResponseDto redskyResponseDto = redskyTargetClient.requestProduct(id);
             if (redskyResponseDto.getTitle() == null || redskyResponseDto.getId() == null) {
                 throw new ProductNotFoundException();
@@ -47,5 +47,16 @@ public class ProductService {
             throw new ProductServiceException(e.getMessage(), e);
         }
         return productDto;
+    }
+
+    public ProductDto updatePrice(String id, Price price) throws ProductNotFoundException, ProductServiceException {
+        final ProductDto productDto = selectProduct(id);
+        final Price newPrice = Price.builder()
+                .price(price.getPrice())
+                .currency(price.getCurrency())
+                .productId(id)
+                .build();
+        priceRepository.save(newPrice);
+        return new ProductDto(id, productDto.getName(), newPrice.getCurrency(), newPrice.getPrice());
     }
 }

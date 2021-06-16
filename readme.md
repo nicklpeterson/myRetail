@@ -25,3 +25,23 @@ will help avoid any machine specific issues.
 ##### Future Changes
 We may want to add a schema change management tool (like [Mongock](https://github.com/cloudyrock/mongock)) to
  facilitate easy database changes.
+ 
+### Security
+The put endpoint for updating product price information is only avilable to users with credentials saved in the
+ user collection of the database. The endpoint is secured with authentication and authorization using JSON Web Tokens
+  (JWT). 
+
+The following header is required when accessing `/products/price/{id}`, where `xxx.yyy.zzz` is the JWT:
+- `Authorization: Bearer xxx.yyy.zzz`
+
+Before accessing the endpoint users must obtain a token using the login endpoint. For Example:
+
+- `curl -i -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password": "admin"}' http://localhost
+:8080
+/login`
+
+If a user with the above credentials is found in the database, the application will respond with an authorization
+ header that contains a JWT that will be valid for 15 minutes.
+ 
+
+
