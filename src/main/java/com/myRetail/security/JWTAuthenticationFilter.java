@@ -23,6 +23,13 @@ import java.util.Date;
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static com.myRetail.security.SecurityConstants.*;
 
+/*
+The Authentication filter is used to authenticate requests to the /login endpoint
+
+Users that wish to use the put /products/price/{id} endpoint must be authenticated and send their JWT in a header on subsequent
+requests to the secure endpoint.
+ */
+
 @AllArgsConstructor
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     // JWT tokens will expire after 15 minutes

@@ -58,6 +58,19 @@ public abstract class AbstractTest {
 
     @AfterEach
     public void resetDB() {
+        for (String id : PRODUCT_DTO_MAP.keySet()) {
+            ProductDto productDto = PRODUCT_DTO_MAP.get(id);
+            if (productDto.getCurrentPrice() != null) {
+                priceRepository.save(
+                        Price.builder()
+                                .currency(productDto.getCurrentPrice().getCurrencyCode())
+                                .price(productDto.getCurrentPrice().getPrice())
+                                .productId(id)
+                                .build()
+                );
+            }
+        }
+
         priceRepository.deleteById("2");
         priceRepository.save(
                 Price.builder()
