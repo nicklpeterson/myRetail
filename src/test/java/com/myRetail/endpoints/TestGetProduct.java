@@ -11,11 +11,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class TestGetProduct extends AbstractTest {
-
     /*
     TEST CASE 1
 
-    Get Products/{id} returns product information correctly when product and price information are present
+    GET Products/{id} returns product information correctly when product and price information are present
      */
     @Test
     public void getProductWhenAllInformationIsPresent() throws Exception {
@@ -35,7 +34,7 @@ public class TestGetProduct extends AbstractTest {
     /*
     TEST CASE 2
 
-    Get Products/{id} returns product information correctly when product is present and price is not
+    GET Products/{id} returns product information correctly when product is present and price is not
      */
     @Test
     public void getProductWhenProductIsNotFoundInDB() throws Exception {
@@ -50,22 +49,22 @@ public class TestGetProduct extends AbstractTest {
     /*
     TEST CASE 3
 
-    Get Products/{id} returns 404 when product cannot be found
+    GET Products/{id} returns 404 when product cannot be found
      */
     @Test
     public void getProductNotFound() throws Exception {
         this.mockMvc.perform(get(GET_PRODUCTS_URI + "1"))
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().isNotFound());
     }
 
     /*
     TEST CASE 4
 
-    Get Products/{id} returns 404 when only price data is found
+    GET Products/{id} returns 404 when only price data is found
      */
     @Test
     public void getProductOnlyPriceDataFound() throws Exception {
         this.mockMvc.perform(get(GET_PRODUCTS_URI + "2"))
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().isNotFound());
     }
 }

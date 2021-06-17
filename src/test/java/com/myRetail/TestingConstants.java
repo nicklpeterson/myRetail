@@ -33,4 +33,6 @@ public class TestingConstants {
         PRODUCT_DTO_MAP.put(KRAFT_MACARONI_ID, KRAFT_MACARONI_PRODUCT_DTO);
     }
 
+    public static final String FAKE_JWT = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImp0aSI6IjgxM2Q0NjhmLTExNzItNDIxZi1hZjc0LTViOTEyMWMyNmU5MiIsImlhdCI6MTYyMzk0NTEzNywiZXhwIjoxNjIzOTQ4NzM3fQ.FkWMA2WP25Lpwa7TI0kLYfYvBBs2KVtRwE2pAc6QimM";
+
 }

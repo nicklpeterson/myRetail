@@ -8,8 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class TestLogin extends AbstractTest {
-
+public class TestPostLogin extends AbstractTest {
     /*
     TEST CASE 1
 
@@ -32,7 +31,7 @@ public class TestLogin extends AbstractTest {
     public void invalidLoginAttempt() throws Exception {
         this.mockMvc.perform(post(LOGIN_URI)
                 .content("{\"username\": \"nick\", \"password\": \"dev\"}"))
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().isForbidden());
     }
 
     /*
