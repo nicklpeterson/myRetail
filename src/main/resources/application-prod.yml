@@ -9,4 +9,4 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://db-prod-user:target$redsky@cluster0.cdd4o.mongodb.net/my-retail-db?retryWrites=true&w=majority
+      uri: mongodb+srv://${ATLAS_DB_USER}:${ATLAS_DB_PASSWORD}@cluster0.cdd4o.mongodb.net/${ATLAS_DB}?retryWrites=true&w=majority

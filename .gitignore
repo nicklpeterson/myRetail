@@ -1,3 +1,4 @@
 .idea/
 myRetail.iml
 target/
+.env
