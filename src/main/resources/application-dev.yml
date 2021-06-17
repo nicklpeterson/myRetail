@@ -1,0 +1,12 @@
+## --------------------------------------------------
+## | DEV Properties |
+## --------------------------------------------------
+
+spring:
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 5400
+      database: my-retail-db
+      username: admin
+      password: admin

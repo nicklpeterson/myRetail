@@ -31,7 +31,7 @@ public class TestPostLogin extends AbstractTest {
     public void invalidLoginAttempt() throws Exception {
         this.mockMvc.perform(post(LOGIN_URI)
                 .content("{\"username\": \"nick\", \"password\": \"dev\"}"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 
     /*

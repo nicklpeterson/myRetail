@@ -1,11 +1,11 @@
+## --------------------------------------------------
+## | Properties that are the same across DEV & PROD |
+## --------------------------------------------------
+
+spring:
+  application.name: My Retail Server
+  profiles.active: @activatedProperties@
+
 server:
   port: 8080
 
-spring:
-  data:
-    mongodb:
-      host: 127.0.0.1
-      port: 5400
-      database: my-retail-db
-      username: admin
-      password: admin
