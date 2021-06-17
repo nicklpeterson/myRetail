@@ -1,6 +1,7 @@
 package com.myRetail.controller;
 
 import com.myRetail.dto.ProductDto;
+import com.myRetail.exceptions.BadPriceUpdateRequest;
 import com.myRetail.exceptions.ProductNotFoundException;
 import com.myRetail.exceptions.ProductServiceException;
 import com.myRetail.models.Price;
@@ -9,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 @Slf4j
@@ -33,7 +35,10 @@ public class ProductController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(path = "/products/price/{id}")
-    public ProductDto updateProductPrice(@PathVariable String id, @RequestBody Price price) throws ProductNotFoundException {
+    public ProductDto updateProductPrice(@PathVariable String id, @RequestBody Price price) throws ProductNotFoundException, BadPriceUpdateRequest {
+        if (price.getPrice() == null || price.getCurrency() == null) {
+            throw new BadPriceUpdateRequest();
+        }
         final ProductDto productDto;
         try {
             productDto = productService.updatePrice(id, price);

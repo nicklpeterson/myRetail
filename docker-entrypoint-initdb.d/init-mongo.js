@@ -23,13 +23,16 @@ const initialPriceData = [
     {
         _id: "13264003",
         price: 4.99,
-        currency: "USD"
+        currency: "CAD"
     },
-    {
-        _id: "12954218",
-       price: 17.55,
-       currency: "CAD"
-    },
+    // Note: I removed this item from the database to demonstrate and test that this
+    //       application can handle the case where the product is present in the redsky api
+    //       but not the database.
+    // {
+    //     _id: "12954218",
+    //    price: 17.55,
+    //    currency: "CAD"
+    // },
 ]
 
 db = db.getSiblingDB('my-retail-db');

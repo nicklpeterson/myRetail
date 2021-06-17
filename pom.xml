@@ -21,6 +21,9 @@
         <slf4j.version>1.7.30</slf4j.version>
         <apache-http-client.version>4.5.13</apache-http-client.version>
         <jackson.version>2.11.1</jackson.version>
+        <flapdoodle.version>3.0.0</flapdoodle.version>
+        <junit.version>5.0.0</junit.version>
+        <mockito.version>1.10.19</mockito.version>
     </properties>
 
     <dependencies>
@@ -45,6 +48,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- /SPRING -->
 
@@ -87,6 +100,33 @@
             <version>${jackson.version}</version>
         </dependency>
         <!-- / JACKSON -->
+
+        <!-- FLAPDOODLE | Used for running mongodb in unit tests
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>${flapdoodle.version}</version>
+            <scope>test</scope>
+        </dependency>
+         / FLAPDOODLE -->
+
+        <!-- JUNIT -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- / JUNIT -->
+
+        <!-- MOCKITO -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- / MOCKITO -->
     </dependencies>
 
     <build>

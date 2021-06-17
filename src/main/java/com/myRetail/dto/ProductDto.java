@@ -25,7 +25,7 @@ public class ProductDto {
 
     @AllArgsConstructor
     @Getter
-    private static class CurrentPrice {
+    public static class CurrentPrice {
         private final String currencyCode;
         private final double price;
     }
