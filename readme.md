@@ -43,5 +43,9 @@ Before accessing the endpoint users must obtain a token using the login endpoint
 If a user with the above credentials is found in the database, the application will respond with an authorization
  header that contains a JWT that will be valid for 15 minutes.
  
+ ###Quick Start
+ 
+ Production: `mvn -Pprod`
+ Development `docker-compose up` and `mvn -Pdev`
 
 

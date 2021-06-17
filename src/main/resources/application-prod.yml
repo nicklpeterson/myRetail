@@ -2,10 +2,6 @@
 ## | PRODUCTION Properties |
 ## --------------------------------------------------
 
-# db password: target$redsky
-# db username: db-prod-user
-# mongodb+srv://db-prod-user:target$redsky@cluster0.cdd4o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-
 spring:
   data:
     mongodb:
