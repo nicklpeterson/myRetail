@@ -49,7 +49,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth) throws IOException, ServletException {
-        final String username = ((org.springframework.security.core.userdetails.User)  auth.getPrincipal()).getUsername();
+        final String username = ((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername();
         try {
             final User user = userService.getUserByUsername(username);
             final ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();

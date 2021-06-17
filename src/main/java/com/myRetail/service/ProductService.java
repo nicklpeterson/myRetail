@@ -1,6 +1,5 @@
 package com.myRetail.service;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.myRetail.clients.RedskyTargetClient;
 import com.myRetail.dto.ProductDto;
 import com.myRetail.dto.RedskyResponseDto;
