@@ -109,15 +109,6 @@
             <scope>test</scope>
         </dependency>
         <!-- / JUNIT -->
-
-        <!-- MOCKITO -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- / MOCKITO -->
     </dependencies>
 
     <profiles>

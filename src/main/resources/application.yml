@@ -4,7 +4,7 @@
 
 spring:
   application.name: My Retail Server
-  profiles.active: @activatedProperties@
+  profiles.active: '@activatedProperties@'
 
 server:
   port: 8080

@@ -5,4 +5,8 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://${ATLAS_DB_USER}:${ATLAS_DB_PASSWORD}@cluster0.cdd4o.mongodb.net/${ATLAS_DB}?retryWrites=true&w=majority
+      host: 127.0.0.1
+      port: 27000
+      database: my-retail-db
+      username: admin
+      password: admin
