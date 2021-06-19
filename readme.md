@@ -2,7 +2,7 @@
     <img src="./src/main/resources/static/mock-logo.PNG">
 </p>
 
-The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The above logo is just for fun.
+The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The logo above is just for fun.
 
 The goal of this exercise was to create end-to-end Proof-of-Concept for a products API that aggregates product data from multiple sources and returns it as JSON to the caller. 
 
@@ -11,7 +11,7 @@ My solution is a RESTful API written in Java using the Spring framework. It is a
 ### Hosted Application
 The myRetail API is hosted on my personal droplet [www.kawnipi.com](kawnipi).
 
-If you don't want to run the application on your own machine skip to the **Endpoints** section and replace localhost:8080 with [www.kawnipi.com:8080](http://www.kawnipi.com:8080).
+If you don't want to run the application on your own machine skip to the **Endpoints** section and replace [localhost:8080](http://localhost.com) with [www.kawnipi.com:8080](http://www.kawnipi.com:8080).
 
 ### System Requirements
 
