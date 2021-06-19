@@ -8,6 +8,11 @@ The goal of this exercise was to create end-to-end Proof-of-Concept for a produc
 
 My solution is a RESTful API written in Java using the Spring framework. It is a POC, featuring seperate development and production databases for a nice development experience, authentication and authorization using JSON Web Tokens, and unit tests for quality assurance. I go into more detail about the tech stack and engineering decisions below, but first let's get the application running.
 
+### Hosted Application
+The myRetail API is hosted on my personal droplet [www.kawnipi.com](kawnipi).
+
+If you don't want to run the application on your own machine skip to the **Endpoints** section and replace localhost:8080 with [www.kawnipi.com:8080](http://www.kawnipi.com:8080).
+
 ### System Requirements
 
 - [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
