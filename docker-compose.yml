@@ -2,7 +2,7 @@ version: '3.7'
 services:
   mongoProd:
     image: mongo:latest
-    container_name: 'mongo-container'
+    container_name: 'mongo-prod-container'
     environment:
       MONGO_INITDB_DATABSE: my-retail-db
       MONGO_INITDB_ROOT_USERNAME: prod
@@ -11,15 +11,15 @@ services:
       - 27000:27017
     volumes:
       - ./docker-entrypoint-initdb.d/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-  mongoTest:
+  mongoDev:
     image: mongo:latest
-    container_name: 'mongo-test-container'
+    container_name: 'mongo-dev-container'
     environment:
       MONGO_INITDB_DATABSE: my-retail-db
       MONGO_INITDB_ROOT_USERNAME: dev
       MONGO_INITDB_ROOT_PASSWORD: 123
     ports:
-      - 5400:27017
+      - 27001:27017
     volumes:
       - ./docker-entrypoint-initdb.d/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
   admin:

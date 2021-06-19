@@ -125,6 +125,7 @@
             <id>prod</id>
             <properties>
                 <activatedProperties>prod</activatedProperties>
+                <maven.test.skip>true</maven.test.skip>
             </properties>
         </profile>
     </profiles>
