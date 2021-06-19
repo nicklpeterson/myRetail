@@ -1,5 +1,6 @@
 package com.myRetail.security;
 
+import com.myRetail.controller.AuthenticationController;
 import com.myRetail.service.UserDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -33,6 +34,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))
                 // this disables session creation on Spring Security
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.exceptionHandling()
+                .authenticationEntryPoint(new AuthenticationController());
     }
 
     @Override
