@@ -153,7 +153,7 @@ This is a noSQL database with two collections: **price** and **user**. The **pri
 
 ![The price collection in adminer](./src/main/resources/static/adminer-price-collection.PNG)
 
-![The price collection in adminer](./src/main/resources/static/adminer-user-collection.PNG)
+![The user collection in adminer](./src/main/resources/static/adminer-user-collection.PNG)
  
 ### Security
 The put endpoint for updating product price information is only avilable to users with credentials saved in the
@@ -165,3 +165,14 @@ At this time the `GET` endpoint is unsecured, so users do not need a token to ac
 
 ### Testing
 I focused on testing endpoints using unit tests that cover general use and edge cases.  I chose not to write unit tests for every single class, because then every change could force the developer to re-write a test. Instead, we have working tests for all user facing endpoints. This way developers only need to change/add tests when user facing functionality changes or expands. This allows the tests to remain useful without constant oversight from developers.
+
+### Screenshots
+
+#### Successful GET request
+![Successful GET request](./src/main/resources/static/successful-GET.PNG)
+
+#### Successful POST request
+![Successful GET request](./src/main/resources/static/successful-POST.PNG)
+
+#### Successful PUT request
+![Successful GET request](./src/main/resources/static/successful-PUT.PNG)
