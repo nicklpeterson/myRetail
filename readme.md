@@ -78,6 +78,8 @@ Notes:
 - If the redsky api returns the product name, but the data is not present in the database, only the id and name fields will be returned.
 - If the redsky api does not return the product name, the endpoint will respond with error code `404 Not Found`.
 
+![Successful GET request](./src/main/resources/static/successful-GET.PNG)
+
 #### Update the price data for the product with id `{id}`
 
     PUT /products/price/{id}
@@ -102,6 +104,8 @@ Example Response Body:
                 "currencyCode0":"CAD"
          }
     }
+    
+![Successful PUT request](./src/main/resources/static/successful-PUT.PNG)
 
 Notes:
 - This endpoint requires an `Authorization: Bearer xxx.yyy.zzz` header where `xxx.yyy.zzz` is a JSON Web Token which can be received via the login endpoint.
@@ -133,6 +137,8 @@ Example Response Headers:
 Notes:
 - The Authorization header in the response contains the JWT, which must be added as a header in future requests to the `PUT products/price/{id}` endpoint. If you are using a tool like curl or postman, just copy and paste the token into an authorization header in the put request. The tokens are valid for 15 minutes.
 - The only valid credentials are username: "admin" and password: "admin" in both development and production.
+
+![Successful POST request](./src/main/resources/static/successful-POST.PNG)
 
 ### NoSQL Database
 This application is set up with two mongoDB databases (development and production). Currently both are running in docker containers, but changing the production database to a server or cloud hosted mongoDB database can be done by simply changing the spring data properties in `application-prod.yml`.
@@ -166,13 +172,6 @@ At this time the `GET` endpoint is unsecured, so users do not need a token to ac
 ### Testing
 I focused on testing endpoints using unit tests that cover general use and edge cases.  I chose not to write unit tests for every single class, because then every change could force the developer to re-write a test. Instead, we have working tests for all user facing endpoints. This way developers only need to change/add tests when user facing functionality changes or expands. This allows the tests to remain useful without constant oversight from developers.
 
-### Screenshots
+Running `mvn clean test` will output:
 
-#### Successful GET request
-![Successful GET request](./src/main/resources/static/successful-GET.PNG)
-
-#### Successful POST request
-![Successful GET request](./src/main/resources/static/successful-POST.PNG)
-
-#### Successful PUT request
-![Successful GET request](./src/main/resources/static/successful-PUT.PNG)
+![unit-tests](./src/main/resources/static/unit-tests.PNG)
