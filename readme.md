@@ -2,13 +2,11 @@
     <img src="./src/main/resources/static/mock-logo.PNG">
 </p>
 
-The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target.
+The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The above logo is just for fun.
 
 The goal of this exercise was to create end-to-end Proof-of-Concept for a products API that aggregates product data from multiple sources and returns it as JSON to the caller. 
 
 My solution is a RESTful API written in Java using the Spring framework. It is a POC, featuring seperate development and production databases for a nice development experience, authentication and authorization using JSON Web Tokens, and unit tests for quality assurance. I go into more detail about the tech stack and engineering decisions below, but first let's get the application running.
-
-Side-Note: The above logo is just for fun. MyRetail is not a real business.
 
 ### System Requirements
 
@@ -150,12 +148,12 @@ If you are prompted to login make sure to set the following fields:
 - Password: `admin`
 - Database: `my-retail-db`
 
+#### Database Design
+This is a noSQL database with two collections: **price** and **user**. The **price** collection contains price and currency data, the initialization script creates adds four entries on start up. The **user** collection contains usernames and passwords for users that are authorized to update product prices. The passwords are stored encrypted. The initialization script adds a single user to the database on start up. 
+
 ![The price collection in adminer](./src/main/resources/static/adminer-price-collection.PNG)
 
 ![The price collection in adminer](./src/main/resources/static/adminer-user-collection.PNG)
-
-#### Database Design
-This is a noSQL database with two collections: **price** and **user**. The **price** collection contains price and currency data, the initialization script creates adds four entries on start up. The **user** collection contains usernames and passwords for users that are authorized to update product prices. The passwords are stored encrypted. The initialization script adds a single user to the database on start up. 
  
 ### Security
 The put endpoint for updating product price information is only avilable to users with credentials saved in the
