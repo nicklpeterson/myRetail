@@ -22,7 +22,7 @@ public class TestPutProductPrice extends AbstractTest {
         this.mockMvc.perform(put(PUT_PRODUCTS_PRICE_URI + BIG_LEBOWSKI_ID)
                 .content("{\"price\":1000, \"currency\":\"CAD\"}")
                 .header(HttpHeaders.CONTENT_TYPE, "application/json"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 
     /*
@@ -36,7 +36,7 @@ public class TestPutProductPrice extends AbstractTest {
                 .content("{\"price\":1000, \"currency\":\"CAD\"}")
                 .header(HttpHeaders.CONTENT_TYPE, "application/json")
                 .header("Authorization", FAKE_JWT))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 
     /*
@@ -57,14 +57,14 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(jsonPath("$.*", hasSize(3)))
                 .andExpect(jsonPath("$.name").value(productDto.getName()))
                 .andExpect(jsonPath("$.id").value(BIG_LEBOWSKI_ID))
-                .andExpect(jsonPath("$.currentPrice.currencyCode").value("CAD"))
+                .andExpect(jsonPath("$.currentPrice.currency").value("CAD"))
                 .andExpect(jsonPath("$.currentPrice.price").value(1000));
 
         // Test that the price information has been updated
         this.mockMvc.perform(get(GET_PRODUCTS_URI + BIG_LEBOWSKI_ID))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.*", hasSize(3)))
-                .andExpect(jsonPath("$.currentPrice.currencyCode").value("CAD"))
+                .andExpect(jsonPath("$.currentPrice.currency").value("CAD"))
                 .andExpect(jsonPath("$.currentPrice.price").value(1000));
     }
 
@@ -94,14 +94,14 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(jsonPath("$.*", hasSize(3)))
                 .andExpect(jsonPath("$.name").value(productDto.getName()))
                 .andExpect(jsonPath("$.id").value(KRAFT_MACARONI_ID))
-                .andExpect(jsonPath("$.currentPrice.currencyCode").value("CAD"))
+                .andExpect(jsonPath("$.currentPrice.currency").value("CAD"))
                 .andExpect(jsonPath("$.currentPrice.price").value(1000));
 
         // Test that the price information has been updated
         this.mockMvc.perform(get(GET_PRODUCTS_URI + KRAFT_MACARONI_ID))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.*", hasSize(3)))
-                .andExpect(jsonPath("$.currentPrice.currencyCode").value("CAD"))
+                .andExpect(jsonPath("$.currentPrice.currency").value("CAD"))
                 .andExpect(jsonPath("$.currentPrice.price").value(1000));
     }
 

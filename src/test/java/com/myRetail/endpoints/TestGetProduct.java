@@ -25,7 +25,7 @@ public class TestGetProduct extends AbstractTest {
                         .andExpect(status().isOk())
                         .andExpect(jsonPath("$.name").value(productDto.getName()))
                         .andExpect(jsonPath("$.id").value(id))
-                        .andExpect(jsonPath("$.currentPrice.currencyCode").value(productDto.getCurrentPrice().getCurrencyCode()))
+                        .andExpect(jsonPath("$.currentPrice.currency").value(productDto.getCurrentPrice().getCurrency()))
                         .andExpect(jsonPath("$.currentPrice.price").value(productDto.getCurrentPrice().getPrice()));
             }
         }
