@@ -137,6 +137,8 @@ If you are prompted to login make sure to set the following fields:
 - Password: `admin`
 - Database: `my-retail-db`
 
+![The price collection in adminer](./src/main/resources/static/adminer-price-collection.PNG)
+
 ##### Database Design
 This is a noSQL database with two collections: **price** and **user**. The **price** collection contains price and currency data, the initialization script creates adds four entries on start up. The **user** collection contains usernames and passwords for users that are authorized to update product prices. The passwords are stored encrypted. The initialization script adds a single user to the database on start up. 
  
