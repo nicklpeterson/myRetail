@@ -93,7 +93,7 @@ Example Response Body:
     }
 
 Notes:
-- This endpoint is secure because myRetail does not want everyone to be able to change prices. It requires an `Authorization: Bearer xxx.yyy.zzz` header where `xxx.yyy.zzz` is a JSON Web Token which can be received via the login endpoint.
+- This endpoint requires an `Authorization: Bearer xxx.yyy.zzz` header where `xxx.yyy.zzz` is a JSON Web Token which can be received via the login endpoint.
 - The body of the response is the updated object. This is not strictly required by REST, but is there to make life easier for the client.
 - The product price is added to the database when it is not already in the database, but is found by the redsky api. The client does not care where the data is stored, from their perspective we are just updating an entry, so this is the most logical result.
 - This endpoint returns a 404 if the product is not found by the redsky api.
