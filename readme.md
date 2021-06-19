@@ -172,6 +172,6 @@ At this time the `GET` endpoint is unsecured, so users do not need a token to ac
 ### Testing
 I focused on testing endpoints using unit tests that cover general use and edge cases.  I chose not to write unit tests for every single class, because then every change could force the developer to re-write a test. Instead, we have working tests for all user facing endpoints. This way developers only need to change/add tests when user facing functionality changes or expands. This allows the tests to remain useful without constant oversight from developers.
 
-Running `mvn clean test` will output:
+Running `docker-compose up && mvn clean test` will output:
 
 ![unit-tests](./src/main/resources/static/unit-tests.PNG)
