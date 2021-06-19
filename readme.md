@@ -36,9 +36,9 @@ Start the application in prod mode. In prod mode the application will pull data 
 
     mvn -Pprod
 
-Run the unit tests. This may alter the state of the development database:
+Run the unit tests. This will reset the development database to it's initial state. The production database is unaffected:
 
-    mvn clean test
+    docker-compose up -d && mvn clean test
 
 Stop the development database container
 
@@ -172,6 +172,6 @@ At this time the `GET` endpoint is unsecured, so users do not need a token to ac
 ### Testing
 I focused on testing endpoints using unit tests that cover general use and edge cases.  I chose not to write unit tests for every single class, because then every change could force the developer to re-write a test. Instead, we have working tests for all user facing endpoints. This way developers only need to change/add tests when user facing functionality changes or expands. This allows the tests to remain useful without constant oversight from developers.
 
-Running `docker-compose up && mvn clean test` will output:
+Running `docker-compose up -d && mvn clean test` will output:
 
 ![unit-tests](./src/main/resources/static/unit-tests.PNG)
