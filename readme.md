@@ -1,11 +1,14 @@
-![Mock myRetail Logo](./src/main/resources/static/mock-logo.PNG)
+<p align="center">
+    <img src="./src/main/resources/static/mock-logo.PNG">
+</p>
 
-### My Retail
 The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target.
 
 The goal of this exercise was to create end-to-end Proof-of-Concept for a products API that aggregates product data from multiple sources and returns it as JSON to the caller. 
 
-My solution is a RESTful API written in Java using the Spring framework. It is a 'production ready' POC, featuring seperate development and production databases for a nice development experience, authentication and authorization using JSON Web Tokens, and unit tests peace of mind. I go into more detail about the tech stack and engineering decisions below, but first let's get the application running.
+My solution is a RESTful API written in Java using the Spring framework. It is a POC, featuring seperate development and production databases for a nice development experience, authentication and authorization using JSON Web Tokens, and unit tests for quality assurance. I go into more detail about the tech stack and engineering decisions below, but first let's get the application running.
+
+Side-Note: The above logo is just for fun. MyRetail is not a real business.
 
 ### System Requirements
 
@@ -13,13 +16,20 @@ My solution is a RESTful API written in Java using the Spring framework. It is a
 - [Maven](https://maven.apache.org/download.cgi)
 - [Docker](https://docs.docker.com/get-docker/)
 
+The following ports must be available:
+
+- `8080` (The Application. This can be changed in `application.yml` if it is not available)
+- `27000` (Production Database. This caan be changed in `docker-compose.yml`)
+- `27001` (Development Databse. This can be changed in `docker-compose.yml`)
+- `5401` (Adminer. This can be changed in `docker-compose.yml`)
+
 ### Get Started
 First, start the development and production databases in docker containers:
 
     docker-compose up -d
 
-Next, start the application in dev mode. Dev mode simply means the api will be pulling data from the development database:
-
+Next, start the application in dev mode, `spring-boot:run` is the default goal. Dev mode simply means the api will be pulling data from the development database.
+       
     mvn
 
 ### More Useful Commands
@@ -28,7 +38,7 @@ Start the application in prod mode. In prod mode the application will pull data 
 
     mvn -Pprod
 
-Run the unit tests. This may alter the data stored in the development database.:
+Run the unit tests. This may alter the state of the development database:
 
     mvn clean test
 
@@ -43,6 +53,7 @@ Remove the development database container. This is useful if you want to reset t
 Stop and remove all containers. Do not run this command if you are using the mongo-prod-container in production.
 
     docker-compose stop && docker-compose rm
+    
     
 ### Endpoints
 
@@ -99,7 +110,7 @@ Notes:
 - The body of the response is the updated object. This is not strictly required by REST, but is there to make life easier for the client.
 - The product price is added to the database when it is not already in the database, but is found by the redsky api. The client does not care where the data is stored, from their perspective we are just updating an entry, so this is the most logical result.
 - This endpoint returns a 404 if the product is not found by the redsky api.
-- I chose this url to be clear that this endpoint can only be used to update price data. It cannot be used to update the name of a product.
+- I chose this url name to make it clear that this endpoint can only be used to update price data. It cannot be used to update other product information.
 
 #### Login to be able to update price
 
