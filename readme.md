@@ -2,14 +2,14 @@
     <img src="./src/main/resources/static/mock-logo.PNG">
 </p>
 
-The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The logo above is just for fun.
+The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The logo is just for fun.
 
 The goal of this exercise was to create end-to-end Proof-of-Concept for a products API that aggregates product data from multiple sources and returns it as JSON to the caller. 
 
 My solution is a RESTful API written in Java using the Spring framework. It is a POC, featuring seperate development and production databases for a nice development experience, authentication and authorization using JSON Web Tokens, and unit tests for quality assurance. I go into more detail about the tech stack and engineering decisions below, but first let's get the application running.
 
 ### Hosted Application
-The myRetail API is hosted on my personal droplet [www.kawnipi.com](kawnipi).
+The myRetail API is hosted at [www.kawnipi.com](kawnipi) on port `8080`.
 
 If you don't want to run the application on your own machine skip to the **Endpoints** section and replace [localhost:8080](http://localhost.com) with [www.kawnipi.com:8080](http://www.kawnipi.com:8080).
 
@@ -22,7 +22,7 @@ If you don't want to run the application on your own machine skip to the **Endpo
 The following ports must be available:
 
 - `8080` (The Application. This can be changed in `application.yml` if it is not available)
-- `27000` (Production Database. This caan be changed in `docker-compose.yml`)
+- `27000` (Production Database. This can be changed in `docker-compose.yml`)
 - `27001` (Development Databse. This can be changed in `docker-compose.yml`)
 - `5401` (Adminer. This can be changed in `docker-compose.yml`)
 
@@ -148,7 +148,7 @@ Notes:
 ### NoSQL Database
 This application is set up with two mongoDB databases (development and production). Currently both are running in docker containers, but changing the production database to a server or cloud hosted mongoDB database can be done by simply changing the spring data properties in `application-prod.yml`.
 
-The current database set up is intended to make development easy. With a containerized development database it is easy to start up, take down, and reset the database as needed. Additionally, docker allows us to take advantage of the awesome `adminer` a gui used for viewing and intercting with databases.
+The current database set up is intended to make development easy. The containerized development database makes it simple to start up, take down, and reset the database as needed. Additionally, docker allows us to take advantage of the awesome `adminer` a gui used for viewing and interacting with databases.
 
 Once the database is running you can inspect it at: 
 [http://localhost:5401/](http://localhost:5401/?mongo=dbMongo&username=dev&db=my-retail-db).
@@ -160,7 +160,7 @@ If you are prompted to login make sure to set the following fields:
 - Database: `my-retail-db`
 
 #### Database Design
-This is a noSQL database with two collections: **price** and **user**. The **price** collection contains price and currency data, the initialization script creates adds four entries on start up. The **user** collection contains usernames and passwords for users that are authorized to update product prices. The passwords are stored encrypted. The initialization script adds a single user to the database on start up. 
+This is a noSQL database with two collections: **price** and **user**. The **price** collection contains price and currency data, the initialization script (`docker-entrypoint-initdb.d/init-mongo.js`) adds four entries on start up. The **user** collection contains usernames and passwords for users that are authorized to update product prices. The passwords are stored encrypted. The initialization script adds a single user to the database on start up. 
 
 ![The price collection in adminer](./src/main/resources/static/adminer-price-collection.PNG)
 
