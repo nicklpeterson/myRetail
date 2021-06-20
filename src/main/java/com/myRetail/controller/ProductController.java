@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Currency;
+
 @RestController
 @Slf4j
 @AllArgsConstructor
@@ -36,6 +38,11 @@ public class ProductController {
     @PutMapping(path = "/products/price/{id}")
     public ProductDto updateProductPrice(@PathVariable String id, @RequestBody Price price) throws ProductNotFoundException, BadPriceUpdateRequest {
         if (price.getPrice() == null || price.getCurrency() == null) {
+            throw new BadPriceUpdateRequest();
+        }
+        try {
+            Currency.getInstance(price.getCurrency());
+        } catch (IllegalArgumentException e) {
             throw new BadPriceUpdateRequest();
         }
         final ProductDto productDto;

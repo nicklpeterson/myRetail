@@ -3,7 +3,6 @@ package com.myRetail.security;
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.myRetail.exceptions.AuthenticationFailedException;
 import com.myRetail.exceptions.UserNotFoundException;
 import com.myRetail.models.User;
 import com.myRetail.service.UserDetailsService;
@@ -44,7 +43,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                     new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), new ArrayList<>())
             );
         } catch (IOException e) {
-            throw new AuthenticationFailedException(e);
+            throw new RuntimeException(e);
         }
     }
 

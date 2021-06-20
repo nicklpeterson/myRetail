@@ -136,6 +136,21 @@ public class TestPutProductPrice extends AbstractTest {
     }
 
     /*
+    TEST CASE 7
+
+    PUT /products/price/{id} returns a 400 status when currency code is invalid
+     */
+    @Test
+    public void putProductPriceInvalidCurrencyCode() throws Exception {
+        final String JWT = postLogin();
+        this.mockMvc.perform(put(PUT_PRODUCTS_PRICE_URI + BIG_LEBOWSKI_ID)
+                .content("{\"price\":1000, \"currency\":\"NotARealCurrency\"}")
+                .header(HttpHeaders.CONTENT_TYPE, "application/json")
+                .header("Authorization", JWT))
+                .andExpect(status().isBadRequest());
+    }
+
+    /*
     A helper method to obtain an authenticated JSON Web Token
      */
     private String postLogin() throws Exception {

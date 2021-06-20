@@ -119,6 +119,7 @@ Notes:
 - The body of the response is the updated object. This is not strictly required by REST, but is there to make life easier for the client.
 - The product price is added to the database when it is not already in the database, but is found by the redsky api. The client does not care where the data is stored, from their perspective we are just updating an entry, so this is the most logical result.
 - This endpoint returns a 404 if the product is not found by the redsky api.
+- The currency field must contain a valid currency code or the application will respond with status `400 Bad Request`
 - I chose this url name to make it clear that this endpoint can only be used to update price data. It cannot be used to update other product information.
 
 #### Login to be able to update price
