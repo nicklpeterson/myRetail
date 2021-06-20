@@ -13,16 +13,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Service responsible for selecting and updating product information
+ */
 @Service
 @AllArgsConstructor
 public class ProductService {
 
     private final PriceRepository priceRepository;
     private final RedskyTargetClient redskyTargetClient;
-
-    public void savePrice(Price productDto) {
-        priceRepository.save(productDto);
-    }
 
     public ProductDto selectProduct(String id) throws ProductNotFoundException, ProductServiceException {
         final ProductDto productDto;

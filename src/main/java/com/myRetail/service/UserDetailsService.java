@@ -12,6 +12,9 @@ import java.util.Optional;
 
 import static java.util.Collections.emptyList;
 
+/**
+ * Service responsible for retrieving user information
+ */
 @Service
 @AllArgsConstructor
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {

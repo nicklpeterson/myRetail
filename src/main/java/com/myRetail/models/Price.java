@@ -4,6 +4,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Represents an entry in the price collection of the database
+ */
 @Builder
 @Getter
 @Setter

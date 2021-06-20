@@ -10,10 +10,10 @@ import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
-/*
-By default Spring's mapping converter adds an extra '_class' field for every object saved in MongoDB
-Here we are overriding MappingMongoConverter. 'new DefaultMongoTypeMapper(null)' is our new mapper
-which does not include the extra field.
+/**
+ * By default Spring's mapping converter adds an extra '_class' field for every object saved in MongoDB
+ * Here we are overriding MappingMongoConverter. 'new DefaultMongoTypeMapper(null)' is our new mapper
+ * which does not include the extra field.
  */
 
 @Configuration

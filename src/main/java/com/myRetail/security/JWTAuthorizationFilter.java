@@ -16,9 +16,11 @@ import java.util.ArrayList;
 
 import static com.myRetail.security.SecurityConstants.*;
 
-/*
-The Authorization filter blocks any requests that do not contain an Authorization header with a JWT. It is currently configured
-to allow all requests to GET endpoints through without authorization because we do not have any secure GET endpoints.
+/**
+ * The Authorization filter blocks any requests that do not contain an Authorization header with a JWT.
+ *
+ * It is currently configured to allow all requests to GET endpoints through
+ * without authorization because we do not have any secure GET endpoints.
  */
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {

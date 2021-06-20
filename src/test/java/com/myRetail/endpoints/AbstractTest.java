@@ -25,6 +25,9 @@ public abstract class AbstractTest {
     @Autowired
     protected MockMvc mockMvc;
 
+    /**
+     * Set up the database as needed by tests
+     */
     @BeforeEach
     public void initDB() {
         assertThat(priceRepository).isNotNull();
@@ -56,6 +59,9 @@ public abstract class AbstractTest {
 
     }
 
+    /**
+     * reset the state of the database to the initial state
+     */
     @AfterEach
     public void resetDB() {
         for (String id : PRODUCT_DTO_MAP.keySet()) {
@@ -81,8 +87,8 @@ public abstract class AbstractTest {
         );
     }
 
-    /*
-    Smoke Test to ensure the autowired MockMvc has loaded correctly
+    /**
+     * Smoke Test to ensure the autowired MockMvc has loaded correctly
      */
     @Test
     public void contextLoads() throws Exception {

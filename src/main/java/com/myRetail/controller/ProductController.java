@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Currency;
 
+/**
+ * Controller responsible for the two /product/** REST endpoints
+ */
+
 @RestController
 @Slf4j
 @AllArgsConstructor

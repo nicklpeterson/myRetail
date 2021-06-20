@@ -3,6 +3,11 @@ package com.myRetail.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+/**
+ * A Product Data Transfer Object
+ *
+ * Represents all product data
+ */
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDto {

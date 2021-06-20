@@ -13,6 +13,10 @@ import org.springframework.http.HttpHeaders;
 
 import java.io.IOException;
 
+/**
+ * Responsible for sending requests to the
+ * Redsky API
+ */
 @NoArgsConstructor
 public class RedskyTargetClient {
     private static final String URL = "http://redsky.target.com/v3/pdp/tcin/";

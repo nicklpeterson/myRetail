@@ -12,10 +12,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class TestPutProductPrice extends AbstractTest {
-    /*
-    TEST CASE 1
-
-    PUT /products/price/{id} responds with a 404 forbidden when the Authorization header is missing from the request
+    /**
+     * TEST CASE 1
+     *
+     * PUT /products/price/{id} responds with a 404 forbidden when the Authorization header is missing from the request
      */
     @Test
     public void putProductPriceNoAuthHeader() throws Exception {
@@ -25,10 +25,10 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(status().isUnauthorized());
     }
 
-    /*
-    TEST CASE 2
-
-    PUT /products/price/{id} responds with a 404 forbidden when the Authorization header was not issued by our authentication layer
+    /**
+     * TEST CASE 2
+     *
+     * PUT /products/price/{id} responds with a 404 forbidden when the Authorization header was not issued by our authentication layer
      */
     @Test
     public void putProductPriceBadAuthHeader() throws Exception {
@@ -39,12 +39,12 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(status().isUnauthorized());
     }
 
-    /*
-    TEST CASE 3
-
-    PUT /products/price/{id} updates the price in the database and returns the updated product when
-    it is found in the database and by the redsky api
-    */
+    /**
+     * TEST CASE 3
+     *
+     * PUT /products/price/{id} updates the price in the database and returns the updated product when
+     * it is found in the database and by the redsky api
+     */
     @Test
     public void putProductPriceProductFound() throws Exception {
         final String JWT = postLogin();
@@ -68,11 +68,11 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(jsonPath("$.currentPrice.price").value(1000));
     }
 
-    /*
-    TEST CASE 4
-
-    PUT /products/price/{id} adds the product price to the database when it is not in the database,
-    but is found by the redsky api and returns the updated product
+    /**
+     * TEST CASE 4
+     *
+     * PUT /products/price/{id} adds the product price to the database when it is not in the database,
+     * but is found by the redsky api and returns the updated product
      */
     @Test
     public void putProductsPriceNotInDatabase() throws Exception {
@@ -105,10 +105,10 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(jsonPath("$.currentPrice.price").value(1000));
     }
 
-    /*
-    TEST CASE 5
-
-    PUT /products/price/{id} returns a 404 status when the product is not found by the redsky api and is not found in the database
+    /**
+     * TEST CASE 5
+     *
+     * PUT /products/price/{id} returns a 404 status when the product is not found by the redsky api and is not found in the database
      */
     @Test
     public void putProductPriceNotFound() throws Exception {
@@ -120,10 +120,10 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(status().isNotFound());
     }
 
-    /*
-    TEST CASE 6
-
-    PUT /products/price/{id} returns a 404 status when the product is not found by the redsky api and is found in the database
+    /**
+     * TEST CASE 6
+     *
+     * PUT /products/price/{id} returns a 404 status when the product is not found by the redsky api and is found in the database
      */
     @Test
     public void putProductPriceNotFoundInRedskyApiButIsPresentInDB() throws Exception {
@@ -135,10 +135,10 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(status().isNotFound());
     }
 
-    /*
-    TEST CASE 7
-
-    PUT /products/price/{id} returns a 400 status when currency code is invalid
+    /**
+     * TEST CASE 7
+     *
+     * PUT /products/price/{id} returns a 400 status when currency code is invalid
      */
     @Test
     public void putProductPriceInvalidCurrencyCode() throws Exception {
@@ -150,8 +150,8 @@ public class TestPutProductPrice extends AbstractTest {
                 .andExpect(status().isBadRequest());
     }
 
-    /*
-    A helper method to obtain an authenticated JSON Web Token
+    /**
+     * A helper method to obtain an authenticated JSON Web Token
      */
     private String postLogin() throws Exception {
         return this.mockMvc.perform(post(LOGIN_URI)

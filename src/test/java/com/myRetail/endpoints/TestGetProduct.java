@@ -11,10 +11,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class TestGetProduct extends AbstractTest {
-    /*
-    TEST CASE 1
-
-    GET Products/{id} returns product information correctly when product and price information are present
+    /**
+     * TEST CASE 1
+     *
+     * GET Products/{id} returns product information correctly when product and price information are present
      */
     @Test
     public void getProductWhenAllInformationIsPresent() throws Exception {
@@ -31,10 +31,10 @@ public class TestGetProduct extends AbstractTest {
         }
     }
 
-    /*
-    TEST CASE 2
-
-    GET Products/{id} returns product information correctly when product is present and price is not
+    /**
+     * TEST CASE 2
+     *
+     * GET Products/{id} returns product information correctly when product is present and price is not
      */
     @Test
     public void getProductWhenProductIsNotFoundInDB() throws Exception {
@@ -46,10 +46,10 @@ public class TestGetProduct extends AbstractTest {
                 .andExpect(jsonPath("$.*", hasSize(2)));
     }
 
-    /*
-    TEST CASE 3
-
-    GET Products/{id} returns 404 when product cannot be found
+    /**
+     * TEST CASE 3
+     *
+     * GET Products/{id} returns 404 when product cannot be found
      */
     @Test
     public void getProductNotFound() throws Exception {
@@ -57,10 +57,10 @@ public class TestGetProduct extends AbstractTest {
                 .andExpect(status().isNotFound());
     }
 
-    /*
-    TEST CASE 4
-
-    GET Products/{id} returns 404 when only price data is found
+    /**
+     * TEST CASE 4
+     *
+     * GET Products/{id} returns 404 when only price data is found
      */
     @Test
     public void getProductOnlyPriceDataFound() throws Exception {

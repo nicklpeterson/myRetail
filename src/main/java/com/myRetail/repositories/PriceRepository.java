@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Repository for accessing the price collection in the Database
+ */
 @Component
 @Repository
 public interface PriceRepository extends MongoRepository<Price, String> {
