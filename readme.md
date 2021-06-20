@@ -180,7 +180,7 @@ All requests to the `/products/price/{id}` endpoint pass through an authorizatio
 At this time the `GET` endpoint is unsecured, so users do not need a token to access product data.
 
 ### Testing
-I focused on testing endpoints using unit tests that cover general use and edge cases.  I chose not to write unit tests for every single class, because then every change could force the developer to re-write a test. Instead, we have working tests for all user facing endpoints. This way developers only need to change/add tests when user facing functionality changes or expands. This allows the tests to remain useful without constant oversight from developers.
+I focused on testing endpoints using unit tests that cover general use and edge cases.  I chose not to write unit tests for every single class, because then every change could force the developer to re-write a test. Instead, we have working tests for all user facing endpoints, so developers only need to change/add tests when user facing functionality changes or expands.
 
 Running `docker-compose up -d && mvn clean test` will output:
 
