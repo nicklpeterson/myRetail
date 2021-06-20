@@ -1,4 +1,4 @@
-[![Junit Tests](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml)
+[![Junit Tests](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml) [![Build](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml/badge.svg)](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml)
 
 <p align="center">
     <img src="./src/main/resources/static/mock-logo.PNG">
