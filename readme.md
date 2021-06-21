@@ -4,7 +4,7 @@
 
 ## My Retail 
 
-[![Junit Tests](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml) [![Build](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml/badge.svg)](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml)
+[![Junit Tests](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml) [![Build](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml/badge.svg)](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml) ![](https://img.shields.io/github/last-commit/nicklpeterson/myRetail?style=flat&logo=github&labelColor=2e343a&logoColor=959da5)
 
 The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The logo is just for fun.
 
