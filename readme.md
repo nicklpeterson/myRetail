@@ -1,12 +1,8 @@
-<p align="center">
-    <img src="./src/main/resources/static/mock-logo.PNG">
-</p>
-
 ## My Retail 
 
 [![Junit Tests](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml) [![Build](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml/badge.svg)](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml) ![](https://img.shields.io/github/last-commit/nicklpeterson/myRetail?style=flat&logo=github&labelColor=2e343a&logoColor=959da5)
 
-The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target. The logo is just for fun.
+The myRetail RESTful service is a technical assessment case study for a Software Engineer position at Target.
 
 The goal of this exercise was to create end-to-end Proof-of-Concept for a products API that aggregates product data from multiple sources and returns it as JSON to the caller. 
 
