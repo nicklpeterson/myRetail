@@ -2,7 +2,7 @@
     <img src="./src/main/resources/static/mock-logo.PNG">
 </p>
 
-## MY Retail 
+## My Retail 
 
 [![Junit Tests](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nicklpeterson/myRetail/actions/workflows/test.yml) [![Build](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml/badge.svg)](https://github.com/nicklpeterson/myRetail/actions/workflows/build.yml)
 
