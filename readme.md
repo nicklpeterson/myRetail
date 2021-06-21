@@ -110,7 +110,7 @@ Example Response Body:
         "name":"The Big Lebowski (Blu-ray) (Widescreen)",
         "current_price": {
                 "price": 20.21,
-                "currencyCode0":"CAD"
+                "currency":"CAD"
          }
     }
     
