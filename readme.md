@@ -11,7 +11,9 @@ My solution is a RESTful API written in Java using the Spring framework. It is a
 ### Hosted Application
 The myRetail API is hosted at [www.kawnipi.com](kawnipi) on port `8080`.
 
-If you don't want to run the application on your own machine skip to the **Endpoints** section and replace [localhost:8080](http://localhost.com) with [www.kawnipi.com:8080](http://www.kawnipi.com:8080).
+If you don't want to run the application on your own machine skip to the **Endpoints** section and replace [http://localhost:8080](http://localhost.com) with [https://www.kawnipi.com:8080](https://www.kawnipi.com:8080).
+
+UPDATE (6/22): The hosted application requires Transport Layer Security so, `https` is required. 
 
 ### System Requirements
 
