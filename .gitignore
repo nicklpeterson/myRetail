@@ -2,3 +2,4 @@
 myRetail.iml
 target/
 *.env
+*.env.prod
