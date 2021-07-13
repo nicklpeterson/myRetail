@@ -36,8 +36,8 @@ db = db.getSiblingDB('my-retail-db');
 
 db.createUser(
     {
-        user: "admin",
-        pwd: "admin",
+        user: _getEnv('DB_USER_USERNAME'),
+        pwd: _getEnv('DB_USER_PASSWORD'),
         roles: [
             {
                 role: "readWrite",

@@ -8,5 +8,5 @@ spring:
       host: 127.0.0.1
       port: 27001
       database: my-retail-db
-      username: admin
-      password: admin
+      username: ${DEV_DB_USER_USERNAME}
+      password: ${DEV_DB_USER_PASSWORD}

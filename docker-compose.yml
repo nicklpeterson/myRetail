@@ -5,8 +5,10 @@ services:
     container_name: 'mongo-prod-container'
     environment:
       MONGO_INITDB_DATABSE: my-retail-db
-      MONGO_INITDB_ROOT_USERNAME: prod
-      MONGO_INITDB_ROOT_PASSWORD: 123
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      DB_USER_PASSWORD: ${PROD_DB_USER_PASSWORD}
+      DB_USER_USERNAME: ${PROD_DB_USER_USERNAME}
     ports:
       - 27000:27017
     volumes:
@@ -16,8 +18,10 @@ services:
     container_name: 'mongo-dev-container'
     environment:
       MONGO_INITDB_DATABSE: my-retail-db
-      MONGO_INITDB_ROOT_USERNAME: dev
-      MONGO_INITDB_ROOT_PASSWORD: 123
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      DB_USER_PASSWORD: ${DEV_DB_USER_PASSWORD}
+      DB_USER_USERNAME: ${DEV_DB_USER_USERNAME}
     ports:
       - 27001:27017
     volumes:
